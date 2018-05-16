@@ -22,18 +22,58 @@ module.exports = {
   ],
   module: {
     rules: [
+      // ------------------------------------
+      // Handlebars Loader
+      // ------------------------------------
       {
         test: /\.handlebars$/,
         use: [
           'handlebars-loader'
         ]
       },
+      // ------------------------------------
+      // CSS and Style Loader
+      // ------------------------------------
       {
         test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
         ]
+      },
+      // ------------------------------------
+      // Babel Loader
+      // ------------------------------------
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      },
+      // ------------------------------------
+      // Angular Template Loader
+      // ------------------------------------
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'angularjs-template-loader',
+          options: {
+            relativeTo: path.resolve(__dirname, './src')
+          }
+        }
+      },
+      // ------------------------------------
+      // Raw Loader
+      // ------------------------------------
+      {
+        test: /\.html$/,
+        use: {
+          loader: 'raw-loader'
+        }
       }
     ]
   }

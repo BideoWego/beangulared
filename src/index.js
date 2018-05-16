@@ -13,7 +13,7 @@ Beangulared.config([
 
     $stateProvider.state('game', {
       url: '',
-      template: '<h1>{{ message }}</h1>',
+      templateUrl: './templates/game/index.html',
       controller: 'GameCtrl'
     });
   }
