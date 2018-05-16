@@ -1,4 +1,7 @@
 
-export default function($scope) {
-  $scope.message = 'Hello GameCtrl!';
-}
+export default [
+  '$scope',
+  function($scope) {
+    $scope.message = 'Hello GameCtrl!';
+  }
+];

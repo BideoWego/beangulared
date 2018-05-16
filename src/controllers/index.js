@@ -1,5 +1,5 @@
 import GameCtrl from './game_ctrl';
 
-export {
-  GameCtrl
-};
+export default function(app) {
+  app.controller('GameCtrl', GameCtrl);
+}
