@@ -1,4 +1,7 @@
 
+const _size = 8;
+const _types = [0, 1, 2, 3, 4, 5, 6, 7];
+
 class Board {
   constructor(state=null) {
     this._state = state ? state : this._build();
@@ -6,6 +9,14 @@ class Board {
 
   get state() {
     return this._state;
+  }
+
+  static get size() {
+    return _size;
+  }
+
+  static get types() {
+    return _types;
   }
 
   _build() {
@@ -25,8 +36,5 @@ class Board {
     return result;
   }
 }
-
-Board.size = 8;
-Board.types = [0, 1, 2, 3, 4, 5, 6, 7];
 
 export default Board;
