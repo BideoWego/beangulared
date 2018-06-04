@@ -14,17 +14,20 @@ describe('Board', () => {
     it('returns the number of matches', () => {
       const board = new Board([
         [1, 1, 1, 3, 4, 5, 6, 2],
-        [1, 2, 3, 4, 5, 6, 6, 2],
-        [1, 3, 4, 5, 6, 7, 6, 2],
-        [3, 4, 5, 6, 7, 0, 1, 2],
-        [4, 5, 6, 7, 0, 1, 2, 3],
-        [5, 6, 7, 7, 7, 2, 3, 4],
-        [6, 7, 0, 1, 2, 3, 4, 5],
-        [7, 0, 1, 2, 3, 3, 3, 3]
+        [0, 1, 2, 2, 2, 3, 4, 5]
       ]);
-      const matches = board.matches();
-      console.log(JSON.stringify(matches, null, 2));
-      expect(matches).to.be.null;
+      const num = board.matches();
+      expect(num).to.equal(2);
+    });
+  });
+
+  describe('#moves', () => {
+    it('returns the number of moves', () => {
+      const board = [
+        [1, 1, 0, 1, 0, 1, 2, 3]
+      ];
+      const num = board.moves();
+      expect(num).to.equal(1);
     });
   });
 });

@@ -12,6 +12,14 @@ class Board {
     return this._state;
   }
 
+  get width() {
+    return this._state[0].length;
+  }
+
+  get height() {
+    return this._state.length;
+  }
+
   static get size() {
     return _size;
   }
@@ -27,13 +35,16 @@ class Board {
   matches() {
     const matches = [];
 
-    for (let i = 0; i < Board.size; i++) {
+    for (let i = 0; i < this.height; i++) {
+
       const row = this._state[i];
       const column = this._state.map(r => r[i]);
-      for (let j = 0; j <= Board.size - Board.matchSize; j++) {
+
+      for (let j = 0; j <= this.width - Board.matchSize; j++) {
+
         const [a, b, c] = row.slice(j, j + Board.matchSize);
 
-        if (a === b && b === c) {
+        if (a && a === b && b === c) {
           matches.push({
             type: a,
             points: [{
@@ -51,7 +62,7 @@ class Board {
 
         const [e, f, g] = column.slice(j, j + Board.matchSize);
 
-        if (e === f && f === g) {
+        if (e && e === f && f === g) {
           matches.push({
             type: e,
             points: [{
@@ -69,7 +80,11 @@ class Board {
       }
     }
 
-    return matches;
+    return matches.length;
+  }
+
+  moves() {
+
   }
 
   _build() {
