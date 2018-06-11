@@ -22,12 +22,15 @@ describe('Board', () => {
   });
 
   describe('#moves', () => {
-    it('returns the number of moves', () => {
-      const board = [
+    it('returns a single move in a row', () => {
+      const board = new Board([
         [1, 1, 0, 1, 0, 1, 2, 3]
-      ];
+      ]);
       const num = board.moves();
       expect(num).to.equal(1);
+    });
+
+    xit('returns a single move in a column', () => {
     });
   });
 });
