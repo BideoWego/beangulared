@@ -22,7 +22,15 @@ describe('Board', () => {
   });
 
   describe('#moves', () => {
-    it('recognizes an AABA in a row', () => {
+    it('returns 0 when there are no moves', () => {
+      const board = new Board([
+        [0, 1, 2, 3, 4, 5, 6, 7]
+      ]);
+      const num = board.moves();
+      expect(num).to.equal(0);
+    });
+
+    it('returns 1 for an AAxA in a row', () => {
       const board = new Board([
         [1, 1, 0, 1, 0, 3, 2, 1]
       ]);
@@ -30,7 +38,7 @@ describe('Board', () => {
       expect(num).to.equal(1);
     });
 
-    it('recognizes an ABAA in a row', () => {
+    it('returns 1 for an AxAA in a row', () => {
       const board = new Board([
         [1, 0, 1, 1, 0, 3, 2, 1]
       ]);
@@ -38,12 +46,13 @@ describe('Board', () => {
       expect(num).to.equal(1);
     });
 
-    xit('returns a single move in a column', () => {
+    xit('returns 1 for an AxA,xAx across two adjacent rows', () => {
       const board = new Board([
-        [0, 1],
-        [0, 1],
-        [0, 1]
+        [0, 1, 0, 4, 3, 2, 1, 0],
+        [2, 0, 2, 4, 3, 2, 1, 0]
       ]);
+      const num = board.moves();
+      expect(num).to.equal(1);
     });
   });
 });

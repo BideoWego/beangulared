@@ -89,21 +89,22 @@ class Board {
     // TODO: board should not check for moves if there are existing matches
 
     let numMoves = 0;
-    let moveLength = 4;
+    let xSize = 4;
 
+    // Single row checks
     for (let y = 0; y < this.height; y++) {
       const row = this._state[y];
-      for (let x = 0; x <= this.width - moveLength; x++) {
-        const sliced = row.slice(x, x + moveLength);
+      for (let x = 0; x <= this.width - xSize; x++) {
+        const sliced = row.slice(x, x + xSize);
         let a, b, c;
 
-        // AABA
+        // AAxA
         [a, b, , c] = sliced;
         if (a === b && b === c) {
           numMoves++;
         }
 
-        // ABAA
+        // AxAA
         [a, , b, c] = sliced;
         if (a === b && b === c) {
           numMoves++;
