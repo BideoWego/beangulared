@@ -22,15 +22,28 @@ describe('Board', () => {
   });
 
   describe('#moves', () => {
-    it('returns a single move in a row', () => {
+    it('recognizes an AABA in a row', () => {
       const board = new Board([
-        [1, 1, 0, 1, 0, 1, 2, 3]
+        [1, 1, 0, 1, 0, 3, 2, 1]
+      ]);
+      const num = board.moves();
+      expect(num).to.equal(1);
+    });
+
+    it('recognizes an ABAA in a row', () => {
+      const board = new Board([
+        [1, 0, 1, 1, 0, 3, 2, 1]
       ]);
       const num = board.moves();
       expect(num).to.equal(1);
     });
 
     xit('returns a single move in a column', () => {
+      const board = new Board([
+        [0, 1],
+        [0, 1],
+        [0, 1]
+      ]);
     });
   });
 });

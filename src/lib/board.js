@@ -91,12 +91,20 @@ class Board {
     let numMoves = 0;
     let moveLength = 4;
 
-    // AABA
     for (let y = 0; y < this.height; y++) {
       const row = this._state[y];
       for (let x = 0; x <= this.width - moveLength; x++) {
         const sliced = row.slice(x, x + moveLength);
-        const [a, b, , c] = sliced;
+        let a, b, c;
+
+        // AABA
+        [a, b, , c] = sliced;
+        if (a === b && b === c) {
+          numMoves++;
+        }
+
+        // ABAA
+        [a, , b, c] = sliced;
         if (a === b && b === c) {
           numMoves++;
         }
