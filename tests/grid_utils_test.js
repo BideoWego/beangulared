@@ -27,4 +27,20 @@ describe('Grid utils', () => {
       ]);
     });
   });
+
+  describe('#ranges2d', () => {
+    it('returns an array of ranges', () => {
+      const ranges = ranges2d([
+        [0, 1, 2],
+        [1, 2, 3],
+        [2, 3, 4]
+      ], 2, 2);
+      expect(ranges).to.deep.equal([
+        [ [ 0, 1 ], [ 1, 2 ] ],
+        [ [ 1, 2 ], [ 2, 3 ] ],
+        [ [ 1, 2 ], [ 2, 3 ] ],
+        [ [ 2, 3 ], [ 3, 4 ] ]
+      ]);
+    });
+  });
 });
