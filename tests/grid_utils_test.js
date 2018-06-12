@@ -43,4 +43,20 @@ describe('Grid utils', () => {
       ]);
     });
   });
+
+  describe('#extract2d', () => {
+    it('extracts values from a 2d array given a 2d pattern', () => {
+      const values = extract2d([
+        [ , 1, ],
+        [ , 1, ],
+        [ , 1, ]
+      ], [
+        [0, 1, 2],
+        [2, 1, 0],
+        [1, 2, 3],
+        [3, 2, 1]
+      ]);
+      expect(values).to.deep.equal([1, 1, 2]);
+    });
+  });
 });
