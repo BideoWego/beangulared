@@ -64,6 +64,8 @@ export function ranges2d(array, h, w) {
  * @returns {Array} The extracted values
  */
 export function extract2d(pattern, array) {
+  // TODO: Add option to only extract matching values or create another function that does this
+
   const values = [];
 
   for (let y = 0; y < pattern.length; y++) {
