@@ -41,10 +41,10 @@ describe('Grid utils', () => {
         [2, 3, 4]
       ], 2, 2);
       expect(ranges).to.deep.equal([
-        [ [ 0, 1 ], [ 1, 2 ] ],
-        [ [ 1, 2 ], [ 2, 3 ] ],
-        [ [ 1, 2 ], [ 2, 3 ] ],
-        [ [ 2, 3 ], [ 3, 4 ] ]
+        [[0, 1], [1, 2]],
+        [[1, 2], [2, 3]],
+        [[1, 2], [2, 3]],
+        [[2, 3], [3, 4]]
       ]);
     });
   });
@@ -71,9 +71,9 @@ describe('Grid utils', () => {
   describe('#extract2d', () => {
     it('extracts values from a 2d array given a 2d pattern', () => {
       const values = extract2d([
-        [ , 1, ],
-        [ , 1, ],
-        [ , 1, ]
+        [, 1,],
+        [, 1,],
+        [, 1,]
       ], [
         [0, 1, 2],
         [2, 1, 0],
