@@ -56,6 +56,32 @@ export function ranges2d(array, h, w) {
 
 
 /**
+ * Calls a function for all the possible 2d array ranges from the source array. The callback function will be passed the current range and its x,y position in the source array
+ * @param {Array} array - The source array
+ * @param {number} h - The height of the range
+ * @param {number} w - The width of the range
+ * @param {function} fn - The callback function
+ */
+export function eachRange2d(array, h, w, fn) {
+  if (h <= 0 || h > array.length) {
+    return;
+  }
+
+  if (w <= 0 || w > array[0].length) {
+    return;
+  }
+
+  for (let y = 0; y <= array.length - h; y++) {
+    const row = array[y];
+    for (let x = 0; x <= row.length - w; x++) {
+      const range = range2d(array, y, x, h, w);
+      fn(range, x, y);
+    }
+  }
+}
+
+
+/**
  * Extracts values from a 2d array given a 2d pattern. Values are returned as a
  * flattened array where values are placed in the order they were extracted,
  * top to bottom, right to left
