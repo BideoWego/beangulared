@@ -1,5 +1,10 @@
+import Beangulared from '../beangulared';
 
-export default [
+/**
+ * @class Beangulared.GameController
+ * @memberOf Beangulared
+ */
+export default Beangulared.controller('GameController', [
   '$scope', 'board',
   function($scope, board) {
     $scope.appName = 'Beangulared';
@@ -14,4 +19,4 @@ export default [
       'silver'
     ];
   }
-];
+]);
