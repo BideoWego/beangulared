@@ -1,6 +1,10 @@
+/**
+ * @module range2d
+ */
+
 
 /**
- * Creates and returns a 2d array range from the source array
+ * Creates and returns one 2d array range from the source array
  * @param {Array} array - The source array
  * @param {number} y - The y position from which to start the range
  * @param {number} x - The x position from which to start the range
@@ -8,7 +12,7 @@
  * @param {number} w - The width of the range
  * @returns {Array} The selected range
  */
-export function range2d(array, y, x, h, w) {
+export function one(array, y, x, h, w) {
   const range = [];
 
   for (let i = y; i < y + h; i++) {
@@ -26,13 +30,13 @@ export function range2d(array, y, x, h, w) {
 
 
 /**
- * Creates and returns all the possible 2d array ranges from the source array
+ * Creates and returns all the possible 2d ranges from the source array
  * @param {Array} array - The source array
  * @param {number} h - The height of the range
  * @param {number} w - The width of the range
  * @returns {Array} The array of 2d ranges
  */
-export function ranges2d(array, h, w) {
+export function all(array, h, w) {
   const ranges = [];
 
   if (h <= 0 || h > array.length) {
@@ -46,7 +50,7 @@ export function ranges2d(array, h, w) {
   for (let y = 0; y <= array.length - h; y++) {
     const row = array[y];
     for (let x = 0; x <= row.length - w; x++) {
-      const range = range2d(array, y, x, h, w);
+      const range = one(array, y, x, h, w);
       ranges.push(range);
     }
   }
@@ -62,7 +66,7 @@ export function ranges2d(array, h, w) {
  * @param {number} w - The width of the range
  * @param {function} fn - The callback function
  */
-export function eachRange2d(array, h, w, fn) {
+export function each(array, h, w, fn) {
   if (h <= 0 || h > array.length) {
     return;
   }
@@ -74,7 +78,7 @@ export function eachRange2d(array, h, w, fn) {
   for (let y = 0; y <= array.length - h; y++) {
     const row = array[y];
     for (let x = 0; x <= row.length - w; x++) {
-      const range = range2d(array, y, x, h, w);
+      const range = one(array, y, x, h, w);
       fn(range, x, y);
     }
   }
@@ -89,7 +93,7 @@ export function eachRange2d(array, h, w, fn) {
  * @param {Array} array - The source array
  * @returns {Array} The extracted values
  */
-export function extract2d(pattern, array) {
+export function extract(pattern, array) {
   // TODO: Add option to only extract matching values or create another function that does this
 
   const values = [];

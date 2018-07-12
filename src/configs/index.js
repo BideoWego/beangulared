@@ -1,5 +1,5 @@
 import router from './router';
 
-export default function(app) {
+export default app => {
   app.config(router);
 }

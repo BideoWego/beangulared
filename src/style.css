@@ -1,0 +1,28 @@
+
+.cell {
+  border: 1px solid #eee;
+  height: 64px;
+}
+
+.red {
+  background: red;
+}
+.orange {
+  background: orange;
+}
+.yellow {
+  background: yellow;
+}
+.green {
+  background: green;
+}
+.blue {
+  background: blue;
+}
+.purple {
+  background: purple;
+}
+.silver {
+  background: silver;
+}
+

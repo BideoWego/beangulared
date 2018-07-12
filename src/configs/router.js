@@ -1,7 +1,7 @@
 
 export default [
   '$urlRouterProvider', '$stateProvider',
-  function($urlRouterProvider, $stateProvider) {
+  ($urlRouterProvider, $stateProvider) => {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('game', {

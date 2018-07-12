@@ -1,5 +1,5 @@
 import GameCtrl from './game_ctrl';
 
-export default function(app) {
+export default app => {
   app.controller('GameCtrl', GameCtrl);
 }

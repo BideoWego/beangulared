@@ -1,15 +1,11 @@
 import { expect } from 'chai';
-import {
-  range2d,
-  ranges2d,
-  eachRange2d,
-  extract2d
-} from '../src/lib/grid_utils';
+import * as range2d from '../src/lib/range2d';
 
-describe('Grid utils', () => {
-  describe('#range2d', () => {
+
+describe('range2d', () => {
+  describe('#one', () => {
     it('returns a 2d range from the source array', () => {
-      const range = range2d([
+      const range = range2d.one([
         [0, 1, 2],
         [0, 1, 2],
         [0, 1, 2]
@@ -21,7 +17,7 @@ describe('Grid utils', () => {
     });
 
     it('allows an x and y offset for the range', () => {
-      const range = range2d([
+      const range = range2d.one([
         [0, 1, 2],
         [0, 1, 2],
         [1, 2, 3]
@@ -33,9 +29,9 @@ describe('Grid utils', () => {
     });
   });
 
-  describe('#ranges2d', () => {
+  describe('#all', () => {
     it('returns an array of ranges', () => {
-      const ranges = ranges2d([
+      const ranges = range2d.all([
         [0, 1, 2],
         [1, 2, 3],
         [2, 3, 4]
@@ -49,10 +45,10 @@ describe('Grid utils', () => {
     });
   });
 
-  describe('#eachRange2d', () => {
+  describe('#each', () => {
     it('calls a function for each range in the source array', () => {
       const params = [];
-      eachRange2d([
+      range2d.each([
         [1, 2, 3],
         [3, 4, 5],
         [4, 5, 6]
@@ -68,9 +64,9 @@ describe('Grid utils', () => {
     });
   });
 
-  describe('#extract2d', () => {
+  describe('#extract', () => {
     it('extracts values from a 2d array given a 2d pattern', () => {
-      const values = extract2d([
+      const values = range2d.extract([
         [, 1,],
         [, 1,],
         [, 1,]
